@@ -23,13 +23,23 @@ class AuthController extends Controller
             ], 401);
         }
 
-        $user = User::where('email', $request->email)->first();
-        $token = $user->createToken('api-token')->plainTextToken;
+        $request->session()->regenerate();
+        $user = Auth::user();
 
         return response()->json([
             'success' => true,
-            'token' => $token,
             'user' => $user,
+        ]);
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::guard('web')->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return response()->json([
+            'success' => true,
+            'message' => 'Logged out successfully',
         ]);
     }
 }

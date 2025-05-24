@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Car;
 use Illuminate\Validation\ValidationException;
+use App\Http\Resources\CarResource;
 
 class CarController extends Controller
 {
@@ -13,7 +14,7 @@ class CarController extends Controller
     {
         return response()->json([
             'success' => true,
-            'data' => Car::all(),
+            'data' => CarResource::collection(Car::all()),
         ]);
     }
 
@@ -30,7 +31,7 @@ class CarController extends Controller
 
         return response()->json([
             'success' => true,
-            'data' => $car,
+            'data' => new CarResource($car),
         ]);
     }
 
