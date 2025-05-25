@@ -3,7 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\CarController;
+use App\Http\Controllers\Api\CarAdminController;
 use App\Http\Controllers\Api\AuthController;
+use Illuminate\Support\Facades\Log;
 use App\Models\Car;
 
 /*
@@ -32,9 +34,10 @@ Route::get('/cars/{car}', [CarController::class, 'show']);
 
 // Protected routes for store, update, destroy
 Route::middleware(['auth:sanctum', 'is_admin'])->prefix('admin')->group(function () {
-    Route::get('/cars', [CarController::class, 'index']);
-    Route::post('/cars', [CarController::class, 'store']);
-    Route::put('/cars/{car}', [CarController::class, 'update']);
-    Route::patch('/cars/{car}', [CarController::class, 'update']);
-    Route::delete('/cars/{car}', [CarController::class, 'destroy']);
+    Route::get('/cars', [CarAdminController::class, 'index']);
+    Route::post('/cars', [CarAdminController::class, 'store']);
+    Route::get('/cars/{car}', [CarAdminController::class, 'show']);
+    Route::put('/cars/{car}', [CarAdminController::class, 'update']);
+    Route::patch('/cars/{car}', [CarAdminController::class, 'update']);
+    Route::delete('/cars/{car}', [CarAdminController::class, 'destroy']);
 });

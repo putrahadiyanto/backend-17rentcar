@@ -14,7 +14,7 @@ class CarController extends Controller
     {
         return response()->json([
             'success' => true,
-            'data' => CarResource::collection(Car::all()),
+            'data' => CarResource::collection(Car::where('isShowing', true)->get()),
         ]);
     }
 
@@ -22,7 +22,7 @@ class CarController extends Controller
     {
         $car = Car::find($id);
 
-        if (!$car) {
+        if (!$car || !$car->isShowing) {
             return response()->json([
                 'success' => false,
                 'message' => 'Car not found',

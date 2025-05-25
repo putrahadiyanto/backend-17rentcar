@@ -19,10 +19,10 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->string('image');
             $table->integer('capacity');
-            $table->string('transmission');
+            $table->json('transmission');
             $table->string('fuelType');
             $table->year('year');
-            $table->string('color');
+            $table->boolean('isShowing')->default(true);
             $table->string('shortDescription');
             $table->text('description');
             $table->json('features');

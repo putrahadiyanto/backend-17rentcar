@@ -26,6 +26,7 @@ class Car extends Model
         'shortDescription',
         'description',
         'features',
+        'isShowing',
     ];
 
     protected $casts = [
