@@ -22,13 +22,13 @@ class CarResource extends JsonResource
             'price' => $this->price,
             'image' => $this->image,
             'capacity' => $this->capacity,
-            'transmission' => $this->transmission,
+            'transmission' => json_decode($this->transmission, true),
             'fuelType' => $this->fuelType,
             'year' => $this->year,
-            'color' => $this->color,
+            'isShowing' => $this->isShowing,
             'shortDescription' => $this->shortDescription,
             'description' => $this->description,
-            'features' => $this->features,
+            'features' => json_decode($this->features, true),
         ];
     }
 }
