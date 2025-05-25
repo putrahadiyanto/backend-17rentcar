@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Api\CarAdminController;
 use Illuminate\Support\Facades\Log;
 
 /*
@@ -26,4 +27,13 @@ Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logo
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::middleware(['auth:sanctum', 'is_admin'])->prefix('/api/admin')->group(function () {
+    Route::get('/cars', [CarAdminController::class, 'index']);
+    Route::post('/cars', [CarAdminController::class, 'store']);
+    Route::get('/cars/{car}', [CarAdminController::class, 'show']);
+    Route::put('/cars/{car}', [CarAdminController::class, 'update']);
+    Route::patch('/cars/{car}', [CarAdminController::class, 'update']);
+    Route::delete('/cars/{car}', [CarAdminController::class, 'destroy']);
 });

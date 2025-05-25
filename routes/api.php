@@ -33,11 +33,11 @@ Route::get('/cars', [CarController::class, 'index']);
 Route::get('/cars/{car}', [CarController::class, 'show']);
 
 // Protected routes for store, update, destroy
-Route::middleware(['auth:sanctum', 'is_admin'])->prefix('admin')->group(function () {
-    Route::get('/cars', [CarAdminController::class, 'index']);
-    Route::post('/cars', [CarAdminController::class, 'store']);
-    Route::get('/cars/{car}', [CarAdminController::class, 'show']);
-    Route::put('/cars/{car}', [CarAdminController::class, 'update']);
-    Route::patch('/cars/{car}', [CarAdminController::class, 'update']);
-    Route::delete('/cars/{car}', [CarAdminController::class, 'destroy']);
-});
+// Route::middleware(['auth:sanctum', 'is_admin'])->prefix('admin')->group(function () {
+//     Route::get('/cars', [CarAdminController::class, 'index']);
+//     Route::post('/cars', [CarAdminController::class, 'store']);
+//     Route::get('/cars/{car}', [CarAdminController::class, 'show']);
+//     Route::put('/cars/{car}', [CarAdminController::class, 'update']);
+//     Route::patch('/cars/{car}', [CarAdminController::class, 'update']);
+//     Route::delete('/cars/{car}', [CarAdminController::class, 'destroy']);
+// });
