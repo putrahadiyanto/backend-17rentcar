@@ -9,10 +9,9 @@ class Car extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
-    public $incrementing = false;
-    protected $keyType = 'string';
+    public $incrementing = true;
+    protected $keyType = 'int';
     protected $fillable = [
-        'id',
         'name',
         'brand',
         'type',
@@ -22,7 +21,6 @@ class Car extends Model
         'transmission',
         'fuelType',
         'year',
-        'color',
         'shortDescription',
         'description',
         'features',

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('car_clicks', function (Blueprint $table) {
             $table->id();
-            $table->string('car_id');
+            $table->unsignedBigInteger('car_id');
             $table->foreign('car_id')->references('id')->on('cars')->onDelete('cascade');
             $table->unsignedTinyInteger('month');
             $table->year('year');

@@ -20,7 +20,6 @@ class CarAdminController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'id' => 'required|string|unique:cars,id',
             'name' => 'required|string',
             'brand' => 'required|string',
             'type' => 'required|string',

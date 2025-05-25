@@ -16,8 +16,6 @@ class CarClick extends Model
         'clicks',
     ];
 
-    protected $keyType = 'string';
-
     public function car()
     {
         return $this->belongsTo(Car::class, 'car_id', 'id');

@@ -15,7 +15,6 @@ class CarSeeder extends Seeder
     {
         Car::truncate();
         Car::create([
-            'id' => 'avanza',
             'name' => 'Toyota Avanza',
             'brand' => 'Toyota',
             'type' => 'MPV',
@@ -38,7 +37,6 @@ class CarSeeder extends Seeder
             'isShowing' => true,
         ]);
         Car::create([
-            'id' => 'innova',
             'name' => 'Toyota Innova',
             'brand' => 'Toyota',
             'type' => 'MPV',
@@ -61,7 +59,6 @@ class CarSeeder extends Seeder
             'isShowing' => false,
         ]);
         Car::create([
-            'id' => 'hiace',
             'name' => 'Toyota Hiace',
             'brand' => 'Toyota',
             'type' => 'Minibus',
@@ -84,7 +81,6 @@ class CarSeeder extends Seeder
             'isShowing' => true,
         ]);
         Car::create([
-            'id' => 'fortuner',
             'name' => 'Toyota Fortuner',
             'brand' => 'Toyota',
             'type' => 'SUV',
@@ -107,7 +103,6 @@ class CarSeeder extends Seeder
             'isShowing' => true,
         ]);
         Car::create([
-            'id' => 'alphard',
             'name' => 'Toyota Alphard',
             'brand' => 'Toyota',
             'type' => 'MPV',
@@ -130,7 +125,6 @@ class CarSeeder extends Seeder
             'isShowing' => true,
         ]);
         Car::create([
-            'id' => 'xpander',
             'name' => 'Mitsubishi Xpander',
             'brand' => 'Mitsubishi',
             'type' => 'MPV',
@@ -153,7 +147,6 @@ class CarSeeder extends Seeder
             'isShowing' => true,
         ]);
         Car::create([
-            'id' => 'pajero',
             'name' => 'Mitsubishi Pajero Sport',
             'brand' => 'Mitsubishi',
             'type' => 'SUV',
@@ -176,7 +169,6 @@ class CarSeeder extends Seeder
             'isShowing' => true,
         ]);
         Car::create([
-            'id' => 'brv',
             'name' => 'Honda BR-V',
             'brand' => 'Honda',
             'type' => 'SUV',
@@ -199,7 +191,6 @@ class CarSeeder extends Seeder
             'isShowing' => true,
         ]);
         Car::create([
-            'id' => 'crv',
             'name' => 'Honda CR-V',
             'brand' => 'Honda',
             'type' => 'SUV',
@@ -222,7 +213,6 @@ class CarSeeder extends Seeder
             'isShowing' => true,
         ]);
         Car::create([
-            'id' => 'jazz',
             'name' => 'Honda Jazz',
             'brand' => 'Honda',
             'type' => 'Hatchback',
