@@ -27,14 +27,15 @@ class CarAdminController extends Controller
             'price' => 'required|numeric',
             'image' => 'required|string',
             'capacity' => 'required|integer',
-            'transmission' => 'required|string',
+            'transmission' => 'required|array', // must be array for json
             'fuelType' => 'required|string',
             'year' => 'required|integer',
+            'isShowing' => 'boolean',
             'shortDescription' => 'required|string',
             'description' => 'required|string',
             'features' => 'required|array',
-            'isShowing' => 'boolean',
         ]);
+        $validated['transmission'] = json_encode($validated['transmission']);
         $validated['features'] = json_encode($validated['features']);
         $car = Car::create($validated);
         return new CarResource($car);
@@ -58,7 +59,7 @@ class CarAdminController extends Controller
             'price' => 'sometimes|required|numeric',
             'image' => 'sometimes|required|string',
             'capacity' => 'sometimes|required|integer',
-            'transmission' => 'sometimes|required|string',
+            'transmission' => 'sometimes|required|array',
             'fuelType' => 'sometimes|required|string',
             'year' => 'sometimes|required|integer',
             'shortDescription' => 'sometimes|required|string',
@@ -66,6 +67,9 @@ class CarAdminController extends Controller
             'features' => 'sometimes|required|array',
             'isShowing' => 'sometimes|boolean',
         ]);
+        if (isset($validated['transmission'])) {
+            $validated['transmission'] = json_encode($validated['transmission']);
+        }
         if (isset($validated['features'])) {
             $validated['features'] = json_encode($validated['features']);
         }
