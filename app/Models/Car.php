@@ -38,4 +38,9 @@ class Car extends Model
     {
         return $this->hasMany(CarClick::class);
     }
+
+    public function paketTransportasi()
+    {
+        return $this->hasMany(PaketTransportasi::class, 'car_id');
+    }
 }
